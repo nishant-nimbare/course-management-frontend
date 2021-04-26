@@ -1,0 +1,11 @@
+<div class="card m-3">
+    <div class="card-body">
+      <h5 class="card-title">{{course.name}}</h5>
+      <p class="card-text">{{course.description}}</p>
+      <a routerLink="/detail/{{course.id}}" class="btn btn-primary m-1">view</a>
+      <a routerLink="/edit/{{course.id}}" class="btn btn-primary m-1">edit</a>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated {{course.updated_at | date}}</small>
+    </div>
+</div>

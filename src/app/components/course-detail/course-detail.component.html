@@ -1,0 +1,105 @@
+<div >
+    <div *ngIf="course">
+
+        <div class="container">
+
+            
+            <div class="jumbotron m-2">
+                <h1 class="display-4">{{course.name}}</h1>
+                <p class="lead">{{course.description}}</p>
+                <hr class="my-4">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>update at: {{course.updated_at | date}}</p>
+                    </div>
+                    <div>
+                        <p>created at: {{course.created_at | date}}</p>
+                    </div>
+                    <div>
+                        <a routerLink="/edit/{{course.id}}" class="btn btn-primary mx-1">edit</a>
+                        <button (click)="deleteCourse()" class="btn btn-danger mx-1">delete</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Skills and pre requisites -->
+        <div class="container-fluid  bg-dark my-3 p-3">
+
+        
+            <div class="row m-3">
+
+                <div class="col-lg">
+    
+                    <div class="card my-1">
+    
+                        <div class="card-header">Skills</div>
+                        
+                        <ul *ngIf="course.skills" class="list-group list-group-flush">
+                            <li *ngFor="let skill of course.skills;  index as i" class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <span>{{skill}}</span>
+                                    <button (click)="removeSkill(i)" class="btn btn-outline-danger btn-sm">X</button>
+                                </div>
+                                
+                            </li>
+                        </ul>
+
+                        <div class="card-footer">
+                            <!-- Add skill button -->
+
+                            <div class="input-group m-3 pr-3">
+                                <input type="text" [formControl]="newSkillInput" class="form-control" placeholder="Add Skill" aria-label="Add Skill" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                <button  (click)="addSkill()" class="btn btn-outline-secondary" type="button">Add</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <div class="col-lg">
+
+                    <div class="card my-1">
+                        <div class="card-header">Pre requisites</div>
+
+                        <ul *ngIf="course.prerequisites" class="list-group list-group-flush">
+                            <li *ngFor="let prereq of course.prerequisites; index as i" class="list-group-item">
+                                
+                                <div class="d-flex justify-content-between">
+                                    <span>{{prereq}}</span>
+                                    <button (click)="removePreReq(i)" class="btn btn-outline-danger btn-sm">X</button>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <div class="card-footer">
+                                <!-- Add pre-req button button -->
+
+                                <div class="input-group m-3 pr-3">
+                                    <input type="text" [formControl]="newPreReqInput" class="form-control" placeholder="Add Pre requisite" aria-label="Add Pre requisite" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                    <button  (click)="addPreReq()" class="btn btn-outline-secondary" type="button">Add</button>
+                                    </div>
+                                </div>
+                        </div>
+
+                    </div> 
+                
+                
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+    </div>
+</div>

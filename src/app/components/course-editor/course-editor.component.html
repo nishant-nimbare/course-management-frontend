@@ -1,0 +1,25 @@
+<div class="container m-5">
+<form *ngIf="courseForm" [formGroup]="courseForm"  (ngSubmit)="onSubmit()">
+  
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text"  class="form-control" formControlName="name">
+    </div>
+    
+    <div class="form-group">
+        <label for="description">Description: </label>
+        <input type="text" class="form-control" formControlName="description">
+    </div>
+    
+
+    <div class="form-group">
+        <label for="location">Location: </label>
+        <select class="form-control" name="location" [(ngModel)]="courseEdit.location">
+            <option *ngFor="let l of allLocations" [ngValue]="l" >{{l.name}}</option>
+        </select>
+    </div>
+    
+
+    <button type="submit" class="btn btn-success" [disabled]="!courseForm.valid">Submit</button>
+</form>
+</div>

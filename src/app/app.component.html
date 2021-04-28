@@ -1,11 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
     <a class="navbar-brand" routerLink="/home">Course</a>
+    
+    <span *ngIf="user" class="navbar-text">
+        {{user.name | uppercase}}
+    </span>    
 
-    <form *ngIf="isHomePage()" class="form-inline">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-
-    <a routerLink="/edit" class="btn btn-success" role="button">ADD COURSE</a>
+    <button *ngIf="loggedIn" class="btn btn-danger" (click)="logOut()">LogOut</button>
 </nav>
 <router-outlet></router-outlet>

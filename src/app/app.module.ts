@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider} from 'angularx-social-login';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialListComponent } from './components/material-list/material-list.component';
 import { MaterialDetailComponent } from './components/material-detail/material-detail.component';
 import { MaterialEditorComponent } from './components/material-editor/material-editor.component';
+import { LoginComponent } from './components/login/login.component';
+
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,15 +27,32 @@ import { MaterialEditorComponent } from './components/material-editor/material-e
     CourseEditorComponent,
     MaterialListComponent,
     MaterialDetailComponent,
-    MaterialEditorComponent
+    MaterialEditorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environment.googleClientID
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

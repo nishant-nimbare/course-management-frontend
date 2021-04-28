@@ -7,13 +7,14 @@
             <div class="jumbotron m-2">
                 <h1 class="display-4">{{course.name}}</h1>
                 <p class="lead">{{course.description}}</p>
+                <span>{{course.courseLocation.name}}</span>
                 <hr class="my-4">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <p>update at: {{course.updated_at | date}}</p>
+                        <p>update at: {{course.updated_at | date:'short'}}</p>
                     </div>
                     <div>
-                        <p>created at: {{course.created_at | date}}</p>
+                        <p>created at: {{course.created_at | date:'short'}}</p>
                     </div>
                     <div>
                         <a routerLink="/edit/{{course.id}}" class="btn btn-primary mx-1">edit</a>
@@ -100,6 +101,7 @@
         </div>
 
         
-
+        <!-- Course Materials -->
+        <app-material-list [courseId]="course.id"></app-material-list>
     </div>
 </div>

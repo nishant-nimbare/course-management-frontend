@@ -1,1 +1,21 @@
-<p>material-list works!</p>
+<div *ngIf="materials" class="container-fluid">
+    <h4 class="text-center">Course Materials</h4>
+    <a *ngIf="courseId" class="btn btn-outline-success m-3"  routerLink="/material/new/{{courseId}}" >Add Course Material</a>
+    <div *ngFor="let material of materials">
+
+        <div class="card m-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">{{material.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{material.updated_at | date:'short'}}</h6>
+                </div>
+                <p class="card-text">{{material.description}}</p>
+                <a href="{{ materialDownloadBaseUrl+'/'+material.id}}" class="card-link">download</a>
+                <a routerLink="/material/detail/{{material.id}}" class="card-link">history</a>
+                <a routerLink="/material/edit/{{material.id}}" class="card-link">edit</a>
+                <a href="#" class="card-link" (click)="deleteMaterial(material.id)">delete</a>
+            </div>
+        </div>
+
+    </div>
+</div>

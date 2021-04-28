@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Material } from 'src/app/models/Material';
+import { MaterialService } from 'src/app/services/material.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-material-list',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaterialListComponent implements OnInit {
 
-  constructor() { }
+  @Input() courseId:number;
+  materials: Material[];
+  
+  materialDownloadBaseUrl:string = new URL("material/download",environment.BaseUrl).href;
+
+
+  constructor(private materialService:MaterialService) { }
 
   ngOnInit(): void {
+    
+    this.materialService.getMaterialsForCourse(this.courseId).subscribe(
+      m => this.materials = m
+    );
+  
   }
 
+  
 }

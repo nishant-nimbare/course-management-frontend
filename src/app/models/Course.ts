@@ -4,7 +4,7 @@ export interface Course {
     id:number;
     name: string;
     description: string;
-    location?: CourseLocation;
+    courseLocation?: CourseLocation;
     created_at: string;
     updated_at: string;
     skills?: string[];

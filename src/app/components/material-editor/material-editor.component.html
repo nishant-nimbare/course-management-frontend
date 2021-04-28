@@ -1,1 +1,21 @@
-<p>material-editor works!</p>
+<div class="container m-5">
+    <form *ngIf="materialForm" [formGroup]="materialForm"  (ngSubmit)="onSubmit()">
+      
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text"  class="form-control" formControlName="name">
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description: </label>
+            <input type="text" class="form-control" formControlName="description">
+        </div>
+        
+        <div class="form-group">
+            <label for="file">Choose File</label>
+            <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+        </div>
+    
+        <button type="submit" class="btn btn-success" [disabled]="!materialForm.valid">Submit</button>
+    </form>
+    </div>

@@ -12,10 +12,11 @@
     </div>
     
 
-    <div class="form-group">
+    <div *ngIf="allLocations" class="form-group">
         <label for="location">Location: </label>
-        <select class="form-control" name="location" [(ngModel)]="courseEdit.location">
-            <option *ngFor="let l of allLocations" [ngValue]="l" >{{l.name}}</option>
+        <select class="form-control" formControlName="location">
+            <!-- [compareWith]='customCompareLocation' -->
+            <option *ngFor="let l of allLocations;" [ngValue]="l.id">{{l.name}}</option>
         </select>
     </div>
     

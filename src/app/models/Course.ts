@@ -9,4 +9,6 @@ export interface Course {
     updated_at: string;
     skills?: string[];
     prerequisites?: string[];
+    enrolled?:boolean;
+    created?:boolean;
 }

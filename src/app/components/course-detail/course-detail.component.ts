@@ -62,6 +62,14 @@ export class CourseDetailComponent implements OnInit {
   }
 
   isTrainer():boolean{
-    return this.authGuard.isTrainer();
+    return this.authGuard.user.getValue().isTrainer;
+    // return this.authGuard.isTrainer();
+  }
+
+  showMaterial():boolean{
+    return (
+      (this.isTrainer()) ||
+      (this.course.enrolled)
+    );
   }
 }

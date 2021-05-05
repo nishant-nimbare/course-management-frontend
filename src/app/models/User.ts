@@ -4,4 +4,5 @@ export interface User {
     email?:string;
     authToken?:string;
     role: 'TRAINER' | 'STUDENT';
+    isTrainer?:boolean;
 }

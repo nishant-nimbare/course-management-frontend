@@ -102,6 +102,6 @@
 
         
         <!-- Course Materials -->
-        <app-material-list [courseId]="course.id"></app-material-list>
+        <app-material-list [courseId]="course.id" *ngIf="showMaterial()"></app-material-list>
     </div>
 </div>

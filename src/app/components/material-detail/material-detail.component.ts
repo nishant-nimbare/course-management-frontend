@@ -44,6 +44,7 @@ export class MaterialDetailComponent implements OnInit {
   }
 
   isTrainer():boolean{
-    return this.authGuard.isTrainer();
+    return this.authGuard.user.getValue().isTrainer;
+    // return this.authGuard.isTrainer();
   }
 }

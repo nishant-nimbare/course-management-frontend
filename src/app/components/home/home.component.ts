@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   isTrainer():boolean{
-    return this.authGuard.isTrainer();
+    return this.authGuard.user.getValue().isTrainer;
+    // return this.authGuard.isTrainer();
   }
 }

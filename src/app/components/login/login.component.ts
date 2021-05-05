@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     console.log('trying login');
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(()=>{
       console.log('logged in');
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home']);
     });
   }
 

@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import { Material } from 'src/app/models/Material';
 import { MaterialService } from 'src/app/services/material.service';
 import { environment } from 'src/environments/environment';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 @Component({
   selector: 'app-material-detail',
@@ -15,7 +16,7 @@ export class MaterialDetailComponent implements OnInit {
   materialHistory : Material[];
   materialDownloadBaseUrl:string = new URL("material/download",environment.BaseUrl).href;
 
-  constructor(private route: ActivatedRoute, private _location: Location, private materialService:MaterialService) { }
+  constructor(private route: ActivatedRoute, private _location: Location,private  authGuard: AuthGuardService, private materialService:MaterialService) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -42,4 +43,7 @@ export class MaterialDetailComponent implements OnInit {
     })
   }
 
+  isTrainer():boolean{
+    return this.authGuard.isTrainer();
+  }
 }

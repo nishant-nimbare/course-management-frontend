@@ -23,8 +23,13 @@ export class CourseService {
 
   constructor(private http: HttpClient) { }
 
-  getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.courseBaseUrl);
+  getCourses(searchQuery?:string): Observable<Course[]> {
+
+    let url = this.courseBaseUrl
+    if((searchQuery!==undefined) && (searchQuery!==null) && (searchQuery!== ""))
+      url = url +'?search='+searchQuery;
+
+    return this.http.get<Course[]>(url);
   }
 
   getCourse(id:number): Observable<Course> {

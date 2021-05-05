@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Material } from 'src/app/models/Material';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { MaterialService } from 'src/app/services/material.service';
 import {environment} from '../../../environments/environment';
 
@@ -16,7 +17,7 @@ export class MaterialListComponent implements OnInit {
   materialDownloadBaseUrl:string = new URL("material/download",environment.BaseUrl).href;
 
 
-  constructor(private materialService:MaterialService) { }
+  constructor(private materialService:MaterialService, private authGuard: AuthGuardService) { }
 
   ngOnInit(): void {
     
@@ -26,5 +27,8 @@ export class MaterialListComponent implements OnInit {
   
   }
 
+  isTrainer():boolean{
+    return this.authGuard.isTrainer();
+  }
   
 }

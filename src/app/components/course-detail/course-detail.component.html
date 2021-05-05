@@ -16,7 +16,7 @@
                     <div>
                         <p>created at: {{course.created_at | date:'short'}}</p>
                     </div>
-                    <div>
+                    <div *ngIf="isTrainer()">
                         <a routerLink="/edit/{{course.id}}" class="btn btn-primary mx-1">edit</a>
                         <button (click)="deleteCourse()" class="btn btn-danger mx-1">delete</button>
                     </div>
@@ -48,7 +48,7 @@
                             </li>
                         </ul>
 
-                        <div class="card-footer">
+                        <div *ngIf="isTrainer()" class="card-footer">
                             <!-- Add skill button -->
 
                             <div class="input-group m-3 pr-3">
@@ -80,7 +80,7 @@
                         </ul>
 
 
-                        <div class="card-footer">
+                        <div *ngIf="isTrainer()" class="card-footer">
                                 <!-- Add pre-req button button -->
 
                                 <div class="input-group m-3 pr-3">

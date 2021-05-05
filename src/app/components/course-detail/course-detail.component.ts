@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/models/Course';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class CourseDetailComponent implements OnInit {
   newSkillInput:FormControl = new FormControl('');
   newPreReqInput:FormControl = new FormControl('');
 
-  constructor(private route: ActivatedRoute, private router: Router, private courseService: CourseService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private courseService: CourseService, private  authGuard: AuthGuardService) { }
 
   ngOnInit(): void {
     this.getCourse();
@@ -58,5 +59,9 @@ export class CourseDetailComponent implements OnInit {
     this.courseService.removePrequisite(this.course.id, this.course.prerequisites[i]).subscribe(()=>{
       this.course.prerequisites.splice(i,1);
     });
+  }
+
+  isTrainer():boolean{
+    return this.authGuard.isTrainer();
   }
 }

@@ -5,8 +5,8 @@
             <h3 class="card-title">{{material.name}}  </h3>    
             <p class="card-text">{{material.description}}</p>
             <a href="{{ materialDownloadBaseUrl+'/'+material.id}}" class="btn btn-success m-3">download</a>
-            <a routerLink="/material/edit/{{material.id}}" class="btn btn-info m-3">edit</a>
-            <a href="#" class="btn btn-danger m-3" (click)="deleteMaterial(material.id)">delete</a>
+            <a *ngIf="isTrainer()" routerLink="/material/edit/{{material.id}}" class="btn btn-info m-3">edit</a>
+            <a *ngIf="isTrainer()" href="#" class="btn btn-danger m-3" (click)="deleteMaterial(material.id)">delete</a>
             <hr class="my-4">
             <h6 class="card-subtitle mb-2 text-muted">updated at : {{material.updated_at | date:'short'}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">created at : {{material.created_at | date:'short'}}</h6>

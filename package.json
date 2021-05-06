@@ -22,6 +22,8 @@
     "@types/gapi": "0.0.39",
     "@types/gapi.auth2": "0.0.54",
     "angularx-social-login": "^3.5.6",
+    "apexcharts": "^3.26.1",
+    "ng-apexcharts": "^1.5.9",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

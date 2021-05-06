@@ -14,26 +14,6 @@ export class MaterialService {
   materialSubPath = 'material/';
   materialBaseUrl = new URL(this.materialSubPath, environment.BaseUrl).href; 
 
-  mock:Observable<Material[]> =of([
-    {
-      id:1,
-      name:'a',
-      description:'b',
-      version:1,
-      course_id:1,
-      updated_at:(new Date()).toISOString(),
-      created_at:(new Date()).toISOString()
-    },
-    {
-      id:2,
-      name:'b',
-      description:'b',
-      version:1,
-      course_id:2,
-      updated_at:(new Date()).toISOString(),
-      created_at:(new Date()).toISOString()
-    }
-  ]);
 
   materialUrl(id:number):string{
     return new URL(this.materialSubPath+id, environment.BaseUrl).href;
@@ -48,19 +28,10 @@ export class MaterialService {
 
 
   getMaterialsForCourse(courseId:number):Observable<Material[]>{
-    // return this.mock;
-
     return this.http.get<Material[]>(this.materialBaseUrl+"?courseId="+courseId);
   }
 
   getMaterialByID(id:number):Observable<Material>{
-    // return this.mock.pipe(map(
-    //   materials =>{
-    //     let fl = materials.filter( m => m.id === id);
-    //     return (fl.length > 0) ? fl[0] : null;
-    //   }
-    // ));
-
     return this.http.get<Material>(this.materialUrl(id));
   }
 

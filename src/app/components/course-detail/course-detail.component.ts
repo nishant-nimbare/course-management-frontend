@@ -72,4 +72,12 @@ export class CourseDetailComponent implements OnInit {
       (this.course.enrolled)
     );
   }
+
+  enroll(){
+    this.courseService.enroll(this.course.id).subscribe((res)=>{
+      console.log('--enroll result--', res );
+      
+      this.course.enrolled = res;
+    });
+  }
 }

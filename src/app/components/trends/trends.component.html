@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <h3>Enrollment Share</h3>
+    <div id="enrollChart">
+        <apx-chart
+        [series]="enrollChartOptions.series"
+        [chart]="enrollChartOptions.chart"
+        [labels]="enrollChartOptions.labels"
+        [responsive]="enrollChartOptions.responsive"
+        ></apx-chart>
+    </div>
+</div>
+<hr class="my-4">
+<div class="container">
+    <h3>Top Skills</h3>
+    <div id="skillChart">
+        <apx-chart
+        [series]="skillChartOptions.series"
+        [chart]="skillChartOptions.chart"
+        [dataLabels]="skillChartOptions.dataLabels"
+        [plotOptions]="skillChartOptions.plotOptions"
+        [xaxis]="skillChartOptions.xaxis"
+        ></apx-chart>
+    </div>
+</div>
+<hr class="my-4">
+<div class="container">
+    <h3>Top Pre-Requisites</h3>
+    <div id="preReqChart">
+        <apx-chart
+        [series]="preReqChartOptions.series"
+        [chart]="preReqChartOptions.chart"
+        [dataLabels]="preReqChartOptions.dataLabels"
+        [plotOptions]="preReqChartOptions.plotOptions"
+        [xaxis]="preReqChartOptions.xaxis"
+        ></apx-chart>
+    </div>
+</div>

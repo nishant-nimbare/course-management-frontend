@@ -20,6 +20,9 @@
                         <a routerLink="/edit/{{course.id}}" class="btn btn-primary mx-1">edit</a>
                         <button (click)="deleteCourse()" class="btn btn-danger mx-1">delete</button>
                     </div>
+                    <div *ngIf="!showMaterial()">
+                        <button (click)="enroll()" class="btn btn-success mx-1">Enroll</button>
+                    </div>
                 </div>
             </div>
 
@@ -102,6 +105,6 @@
 
         
         <!-- Course Materials -->
-        <app-material-list [courseId]="course.id" *ngIf="showMaterial()"></app-material-list>
+        <app-material-list [courseId]="course.id" *ngIf="showMaterial()" [visible]="showMaterial()"></app-material-list>
     </div>
 </div>

@@ -19,6 +19,8 @@ import { LoginComponent } from './components/login/login.component';
 import {environment} from '../environments/environment';
 import { AuthGuardService } from './services/auth-guard.service';
 import { InterceptorService } from './services/interceptor.service';
+import { TrendsComponent } from './components/trends/trends.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { InterceptorService } from './services/interceptor.service';
     MaterialListComponent,
     MaterialDetailComponent,
     MaterialEditorComponent,
-    LoginComponent
+    LoginComponent,
+    TrendsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { InterceptorService } from './services/interceptor.service';
     HttpClientModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    FormsModule
+    FormsModule,
+    NgApexchartsModule
   ],
   providers: [
     {

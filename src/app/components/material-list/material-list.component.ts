@@ -12,6 +12,8 @@ import {environment} from '../../../environments/environment';
 export class MaterialListComponent implements OnInit {
 
   @Input() courseId:number;
+  @Input() visible:boolean;
+
   materials: Material[];
   
   materialDownloadBaseUrl:string = new URL("material/download",environment.BaseUrl).href;

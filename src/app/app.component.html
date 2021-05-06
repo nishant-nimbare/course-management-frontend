@@ -3,7 +3,11 @@
     
     <span *ngIf="user" class="navbar-text">
         {{user.name | uppercase}}
+        :
+        {{user.role | uppercase}}
     </span>    
+
+    <a *ngIf="loggedIn" class="btn btn-info" routerLink="/trends">Trends</a>
 
     <button *ngIf="loggedIn" class="btn btn-danger" (click)="logOut()">LogOut</button>
 </nav>

@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialDetailComponent } from './components/material-detail/material-detail.component';
 import { MaterialEditorComponent } from './components/material-editor/material-editor.component';
+import { TrendsComponent } from './components/trends/trends.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   {path:'material/detail/:id', component: MaterialDetailComponent, canActivate:[AuthGuard]},
   {path:'material/edit/:id', component:MaterialEditorComponent, canActivate:[AuthGuard]},
   {path:'material/new/:courseId', component:MaterialEditorComponent, canActivate:[AuthGuard]},
+
+  {path:'trends', component: TrendsComponent},
 
   {path:'', redirectTo:'/home', pathMatch:'full'}
 ];

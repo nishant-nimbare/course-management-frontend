@@ -119,4 +119,9 @@ export class CourseService {
     if(!courseId || !prereq) return of(null);
     return this.http.delete(this.courseUrl(courseId)+'/prerequisites/'+prereq);
   }
+
+  enroll(courseId:number):Observable<boolean>{
+    let url = new URL('user/enroll/'+courseId, environment.BaseUrl).href;
+    return this.http.post<boolean>(url, {});
+  }
 }

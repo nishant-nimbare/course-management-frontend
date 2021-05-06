@@ -1,5 +1,5 @@
 <div *ngIf="materials" class="container-fluid">
-    <h4 class="text-center">Course Materials</h4>
+    <h4 *ngIf="visible" class="text-center">Course Materials</h4>
     <a *ngIf="courseId && isTrainer()" class="btn btn-outline-success m-3"  routerLink="/material/new/{{courseId}}" >Add Course Material</a>
     <div *ngFor="let material of materials">
 
